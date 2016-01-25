@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+<property>
+  <name>mapred.max.tracker.blacklists</name>
+  <value>4</value>
+</property>
+
+<property> 
+    <name>mapred.map.tasks.speculative.execution</name> 
+    <value>false</value> 
+</property>
+
+<property>
+  <name>mapred.tasktracker.blacklist.reevaluation.interval</name>
+  <value>86400000</value>
+</property>
+
+<property>
+  <name>mapred.job.tracker</name>
+  <value>192.168.179.138:30013</value>
+</property>
+
+<property>
+  <name>mapred.task.tracker.http.address</name>
+  <value>0.0.0.0:30014</value>
+</property>
+
+<property>
+  <name>mapred.tasktracker.map.tasks.maximum</name>
+  <value>4</value>
+  <description>The maximum number of map tasks that will be run
+  simultaneously by a task tracker.
+  </description>
+</property>
+
+</configuration>

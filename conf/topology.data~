@@ -1,0 +1,6 @@
+Slave1.Hadoop	 /rack1
+Slave2.Hadoop	 /rack2
+Slave3.Hadoop	 /rack3
+192.168.216.138	 /rack1
+192.168.216.139	 /rack2
+192.168.216.140	 /rack3

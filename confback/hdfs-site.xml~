@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+<property>
+  <name>dfs.replication</name>
+  <value>3</value>
+</property>
+
+<property>
+  <name>raid.blockfix.classname</name>
+  <value>org.apache.hadoop.raid.LocalBlockIntegrityMonitor</value>
+</property>
+
+<property>
+  <name>raid.config.file</name>
+  <value>/home/hadoop/hadoop-20/conf/raid.xml</value>
+</property>
+
+<property> 
+    <name>raid.mod.time.period</name> 
+    <value>0</value> 
+</property>
+
+<property> 
+    <name>raid.policy.rescan.interval</name> 
+    <value>100000</value>
+</property>
+
+<property>
+  <name>hdfs.raid.stripe.store.class</name>
+  <value>org.apache.hadoop.raid.LocalStripeStore</value>
+</property>
+
+<property>
+  <name>hdfs.raid.preencoding.stripe.dir</name>
+  <value>/home/hadoop/hadoop-20/preEncStripeStore</value>
+</property>
+
+<property>
+  <name>hdfs.raid.raid.dir.prefix</name>
+  <value>/user/hadoop/raidTest/</value>
+</property>
+
+<property>
+  <name>raid.classname</name>
+  <value>org.apache.hadoop.raid.LocalRaidNode</value>
+</property>
+
+<property>
+  <name>hdfs.raid.user.dir.prefix</name>
+  <value>/user/hadoop/</value>
+</property>
+
+<property>
+  <name>hdfs.raid.local.stripe.dir</name>
+  <value>/home/hadoop/hadoop-20/stripeStore</value>
+</property>
+
+<property>
+  <name>fs.hdfs.impl</name>
+  <value>org.apache.hadoop.hdfs.DistributedRaidFileSystem</value>
+</property>
+
+<!--property>
+  <name>dfs.block.replicator.classname</name>
+  <value>org.apache.hadoop.hdfs.server.namenode.EARBlockPlacementPolicy</value>
+</property-->
+
+<property>
+  <name>dfs.safemode.threshold.pct</name>
+  <value>0</value>
+</property>
+
+<property> 
+    <name>dfs.datanode.address</name> 
+    <value>0.0.0.0:30010</value> 
+</property>
+
+<property>
+    <name>dfs.f4.accepted.codecs</name> 
+    <value>rs,xor</value>
+</property>
+
+<property>
+  <name>dfs.block.size</name>
+  <value>1048576</value>
+</property>
+
+<property>
+  <name>raid.encoder.parallelism</name>
+  <value>1</value>
+</property>
+
+<property>
+  <name>raid.codecs.json</name>
+    <value>[
+{
+"id" : "rs",
+"parity_dir" : "/raidrs",
+"stripe_length" : 4,
+"parity_length" : 2,
+"priority" : 100,
+"erasure_code" : "org.apache.hadoop.raid.ReedSolomonCode",
+"description" : "RS code",
+"simulate_block_fix": false,
+"dir_raid" : true
+}
+]</value>
+  <description>JSon string that contains all Raid codecs</description>
+</property>
+
+</configuration>
+

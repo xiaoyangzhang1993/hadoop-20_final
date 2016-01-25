@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<property>
+  <name>dfs.block.replicator.classname</name>
+  <value>org.apache.hadoop.hdfs.server.namenode.BlockPlacementPolicyDefault</value>
+</property>
+<property>
+  <name>raid.blockfix.classname</name>
+  <value>org.apache.hadoop.raid.LocalBlockIntegrityMonitor</value>
+</property>
+
+<property>
+  <name>raid.classname</name>
+  <value>org.apache.hadoop.raid.LocalRaidNode</value>
+</property>
+
+ <property>
+    <name>raid.codecs.json</name>
+    <value>
+      [
+      {
+        "id" : "xor",
+	"parity_dir" : "/raid",
+        "stripe_length" : 5,
+        "parity_length" : 1,
+        "priority" : 500,
+        "erasure_code" : "org.apache.hadoop.raid.XORCode",
+        "description" : "XORCode code",
+        "simulate_block_fix": false,
+	"dir_raid" : true
+      }  
+     ]
+    </value>
+ </property>
+
+<property>
+     <name>raid.config.file</name>
+     <value>/home/hadoop/hadoop-20/conf/raid.xml</value>
+     <description>This is needed by the RaidNode </description>
+</property>
+
+<property> 
+    <name>raid.policy.rescan.interval</name> 
+    <value>1000000</value>
+</property>
+
+<property>
+  <name>hdfs.raid.raid.dir.prefix</name>
+  <value>/user/hadoop/input/</value>
+</property>
+
+<property>
+  <name>hdfs.raid.user.dir.prefix</name>
+  <value>/user/hadoop/</value>
+</property>
+
+<property> 
+    <name>raid.mod.time.period</name> 
+    <value>0</value> 
+</property>
+
+<property>
+  <name>hdfs.raid.preencoding.stripe.dir</name>
+  <value>/home/hadoop/hadoop-20/preEncStripeStore</value>
+</property>
+
+<property>
+  <name>hdfs.raid.stripe.store.class</name>
+  <value>org.apache.hadoop.raid.LocalStripeStore</value>
+</property>
+
+<property>
+  <name>hdfs.raid.local.stripe.dir</name>
+  <value>/home/hadoop/hadoop-20/stripeStore</value>
+</property>
+
+<property>
+    <name>raid.config.reload</name>
+    <value>true</value>
+</property>
+
+<property>
+    <name>raid.config.reload.interval</name>
+    <value>10</value>
+</property>
+
+<property>
+  <name>fs.hdfs.impl</name>
+  <value>org.apache.hadoop.hdfs.DistributedRaidFileSystem</value>
+</property>
+
+<property>
+  <name>dfs.safemode.threshold.pct</name>
+  <value>0</value>
+</property>
+
+<property>
+<name>dfs.block.size</name>
+<value>1048576</value>
+</property>
+
+<property>
+  <name>raid.encoder.parallelism</name>
+  <value>1</value>
+</property>
+
+<property>
+  <name>dfs.replication</name>
+  <value>2</value>
+</property>
+
+<!--property>
+  <name>fs.raid.recoveryfs.uselocal</name>
+  <value>false</value>
+</property-->
+
+</configuration>
